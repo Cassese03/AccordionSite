@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-    function showIOSInstallInstructions() {
-     const userAgent = window.navigator.userAgent.toLowerCase();
-     const isIOS = /iphone|ipad|ipod/.test(userAgent);
-   
-     if (isIOS) {
-       const instructions = `
-         <div style="position:fixed; top:0; left:0; width:100%; background-color:#fff; border:1px solid #ddd; box-shadow:0 4px 6px rgba(0,0,0,0.1); padding:10px; text-align:center; z-index:10000;">
-           <p>Per aggiungere questo sito alla tua schermata home, tocca l'icona <strong>Condividi</strong> (sembra una freccia che esce da una scatola) e poi seleziona <strong>Aggiungi alla schermata home</strong>.</p>
-           <button onclick="this.parentElement.style.display='none';">Chiudi</button>
-         </div>
-       `;
-       document.body.insertAdjacentHTML('afterbegin', instructions);
-     }
-   }
-   
-   window.onload = showIOSInstallInstructions;
-   
-   </script>
+    <style>
+        .install-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #fff; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; z-index: 10000; } .install-banner p { margin: 0; } .install-banner button { margin-top: 10px; }
+    </style>
+    <script> function showInstallInstructions() { const userAgent = window.navigator.userAgent.toLowerCase(); const isIOS = /iphone|ipad|ipod/.test(userAgent); if (isIOS) { document.getElementById('install-banner').style.display = 'block'; } } window.onload = showInstallInstructions; </script>
     <meta charset="utf-8"/>
     <title>Accordion Style</title>
     <meta content="COPILOT"
